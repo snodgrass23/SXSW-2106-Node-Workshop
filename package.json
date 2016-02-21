@@ -1,0 +1,15 @@
+{
+  "name": "sxsw_2016_node_workshop",
+  "version": "1.0.0",
+  "description": "This app has several modules that demonstrate different aspects of building a Node app built with the intention of teaching Node at SXSW 2016.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+
+  }
+}
