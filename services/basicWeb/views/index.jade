@@ -1,0 +1,13 @@
+extends ./layout
+
+block title
+  | User Search
+
+block content
+
+  h2 User List
+
+  ul
+    each user in users
+      li
+        a(href=`/details/${user.username}`)= user.username
