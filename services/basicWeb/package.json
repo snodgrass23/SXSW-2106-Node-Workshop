@@ -4,15 +4,26 @@
   "description": "",
   "main": "./app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "mocha test/**/*.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "1.15.0",
+    "cookie-parser": "1.4.1",
     "express": "4.13.4",
-    "stylus": "0.54.2",
-    "serve-static": "1.10.2",
+    "express-session": "1.13.0",
     "jade": "1.11.0",
+    "morgan": "1.7.0",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0",
+    "serve-static": "1.10.2",
+    "stylus": "0.54.2"
+  },
+  "devDependencies": {
+    "mocha": "2.4.5",
+    "should": "8.2.2"
   }
 }

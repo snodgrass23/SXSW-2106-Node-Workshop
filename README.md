@@ -167,12 +167,10 @@ http://schedule.sxsw.com/2016/events/event_PP57890
 
 ### v1.4
 
-- add passport.js integration for local auth using HTTP basic auth
-    - install passport-http
-        - https://github.com/jaredhanson/passport-http
+- add passport.js integration for local auth
+    - install passport and passport-local
+        - https://github.com/jaredhanson/passport
     - build very basic view for logging in based on http-basic-example
-        - https://github.com/passport/express-3.x-http-basic-example
-- add domain for error handling???
 - unit tests
 
 ### v1.5

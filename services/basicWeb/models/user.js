@@ -1,24 +1,26 @@
-var users = [
-  {
-    username: 'snodgrass23',
-    email: 'snodgrass23@gmail.com',
-    password: 'password'
-  }
-]
+"use strict";
 
-function User() {
-  return this;
-}
+const USERS = require('../data/users')
+
+function User() {}
 
 User.prototype = {
   all: function() {
-    return users;
+    return USERS;
   },
 
   find_by: function(prop, value) {
-    return users.find(function(user) {
+    return USERS.find(function(user) {
       return user[prop] == value;
     });
+  },
+
+  auth: function(username, password, callback) {
+    let user = USERS.find(function(user) {
+      return user.username == username && user.password == password;
+    });
+    if (!user) return callback('No user with those credentials', null);
+    return callback(null, user);
   }
 }
 

@@ -4,6 +4,7 @@
   "description": "This app has several modules that demonstrate different aspects of building a Node app built with the intention of teaching Node at SXSW 2016.",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

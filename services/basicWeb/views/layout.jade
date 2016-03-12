@@ -2,9 +2,22 @@ doctype html
 html
   head
     meta(charset="utf-8")
-    title
-      block title
+    title SXSW 2106 Node Workshop
     link(rel='stylesheet', href='/global.css' )
 
 body
-  block content
+  #header
+    h1
+      a(href="/") SXSW
+    #auth
+      if is_logged_in
+        form(action='/logout', method='post')
+          input(type="submit", value=`Logout ${current_user}`)
+      else
+        form(action='/login', method='post')
+          input(name="username", placeholder="username")
+          input(type="password", name="password", placeholder="password")
+          input(type="submit", value="=>")
+
+  #content
+    block content
