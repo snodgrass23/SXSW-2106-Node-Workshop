@@ -175,8 +175,8 @@ http://schedule.sxsw.com/2016/events/event_PP57890
 
 ### v1.5
 
-- copy/convert basicWeb into restful api service
-- use mongoose instead of static data
+- refactor file organization a bit
+- use mongoose instead of static data for models
 
 ### v1.6
 
@@ -185,18 +185,13 @@ http://schedule.sxsw.com/2016/events/event_PP57890
     - CLUSTER_LEVEL=4
 - what kind of jobs???????
 
+
 ### v1.7
 
-- convert root runner app into basic front end app that uses api as it’s back end
-- jade and stylus setup
-- add session store with passport.js integration
-
-### v1.8
-
-- convert front end app to use React including server side rendering
+- convert web app to use React including server side rendering
     - https://www.smashingmagazine.com/2016/03/server-side-rendering-react-node-express/
 
-### v1.9
+### v1.8
 
 - Setup Heroku settings for deploy
     - Procfile

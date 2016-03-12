@@ -12,7 +12,7 @@ body
     #auth
       if is_logged_in
         form(action='/logout', method='post')
-          input(type="submit", value=`Logout ${current_user}`)
+          input(type="submit", value=`Logout ${current_user.username}`)
       else
         form(action='/login', method='post')
           input(name="username", placeholder="username")
