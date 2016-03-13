@@ -38,6 +38,7 @@ http://schedule.sxsw.com/2016/events/event_PP57890
 - workshop setup
     - repo (https://github.com/snodgrass23/SXSW-2106-Node-Workshop)
     - how it’s laid out
+        - git checkout -b version1_2 v1.2
 - install Node, or verify version
     - I use “N” globally installed to manage versions (https://www.npmjs.com/package/n)
         - NVM also popular version manager (https://www.npmjs.com/package/nvm)
@@ -96,7 +97,7 @@ http://schedule.sxsw.com/2016/events/event_PP57890
     - don’t hold up the loop by using long running blocking operations!
     - use async operations to get around this
     - gif animation???
-- Considerations when deciding to use Node.js for company project
+- Considerations when deciding to use Node.js for production application
     - unit and integration testing very important since not compiled, so you’re on your own finding errors
     - may be harder than expected to find good devs
         - current front end js devs may be able to transition, but only if know the language well and not “getting by” on jQuery
@@ -184,13 +185,9 @@ http://schedule.sxsw.com/2016/events/event_PP57890
 
 - create worker service that pulls jobs from rabbit
 - add cluster to web service
+- add redis sessions
 
 ### v1.7
-
-- convert web app to use React including server side rendering
-    - https://www.smashingmagazine.com/2016/03/server-side-rendering-react-node-express/
-
-### v1.8
 
 - Setup Heroku settings for deploy
     - Procfile
