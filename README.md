@@ -153,7 +153,7 @@ http://schedule.sxsw.com/2016/events/event_PP57890
         - "main": "./app.js",
 - install express in basicWeb
     - npm install express --save
-- create app.js for new service
+- create app.js for new service, add to main prop in package.js
 
 ### v1.3
 
@@ -182,10 +182,8 @@ http://schedule.sxsw.com/2016/events/event_PP57890
 
 ### v1.6
 
-- add cluster
 - create worker service that pulls jobs from rabbit
-- what kind of jobs???????
-
+- add cluster to web service
 
 ### v1.7
 

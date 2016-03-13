@@ -1,0 +1,21 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "NODE_ENV=test mocha test/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jackrabbit": "4.3.0",
+    "mongoose": "4.4.7"
+  },
+  "devDependencies": {
+    "mocha": "2.4.5",
+    "should": "8.2.2"
+  }
+}

@@ -5,7 +5,8 @@
 // run all services
 const SERVICES = new Set([
   'helloWorld',
-  'basicWeb'
+  'basicWeb',
+  'worker'
 ]);
 
 for (let service of SERVICES) {

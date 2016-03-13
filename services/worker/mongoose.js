@@ -18,6 +18,6 @@ module.exports = (function(config_in) {
 
   mongoose.connect(connectString, mongoOptions, function(err) {
     if (err) console.log ('ERROR connecting to: ' + connectString + '. ' + err);
-    else console.log ('Web Service Mongoose connected to: ' + connectString);
+    else console.log ('Worker Mongoose connected to: ' + connectString);
   });
 })();

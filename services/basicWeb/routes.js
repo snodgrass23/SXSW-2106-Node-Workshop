@@ -2,6 +2,11 @@
 
 var path     = require('path');
 var passport = require('passport');
+var config   = require('./config');
+var jackrabbit = require('jackrabbit');
+var rabbit   = jackrabbit(config.rabbit_url);
+var publisher = rabbit.default();
+
 var User;
 
 module.exports = function (app) {
@@ -24,6 +29,7 @@ module.exports = function (app) {
 
   app.post('/signup', [
     createUser,
+    publishUserCreation,
     redirect('/')
   ]);
 
@@ -83,16 +89,21 @@ function createUser(req, res, next) {
         err_message = "Please check the following fields: ";
         var error_fields = [];
 
-        for (let error in errors) {
-          error_fields.push(errors[error].path);
+        for (let error in err.errors) {
+          error_fields.push(err.errors[error].path);
         }
 
         err_message += error_fields.join(", ");
       }
 
       req.flash(err_message);
-      return res.redirect('/');
+      return res.redirect('/signup');
     }
     else return next();
   });
+}
+
+function publishUserCreation(req, res, next) {
+  publisher.publish(req.body.username, { key: 'sxsw2016_user_create' });
+  return next();
 }
