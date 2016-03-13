@@ -1,10 +1,12 @@
 "use strict";
 
-var stylus       = require('stylus');
-var path         = require('path');
-var serveStatic  = require('serve-static');
-var passport     = require('passport');
-var Strategy     = require('passport-local').Strategy;
+const stylus      = require('stylus');
+const path        = require('path');
+const session     = require('express-session');
+const RedisStore  = require('connect-redis')(session);
+const serveStatic = require('serve-static');
+const passport    = require('passport');
+const Strategy    = require('passport-local').Strategy;
 
 module.exports = function(app) {
 
@@ -25,7 +27,6 @@ module.exports = function(app) {
     User.findBy('username', username, callback);
   });
 
-
   // Middleware
   app.use(stylus.middleware({
     src: path.join(__dirname, '../styles'),
@@ -35,7 +36,14 @@ module.exports = function(app) {
   app.use(require('morgan')('combined'));
   app.use(require('cookie-parser')());
   app.use(require('body-parser').urlencoded({ extended: true }));
-  app.use(require('express-session')({ secret: 'sxsw2016', resave: false, saveUninitialized: false }));
+  app.use(session({
+    secret: 'sxsw2016',
+    resave: false,
+    saveUninitialized: false,
+    store: new RedisStore({
+      client: require('./redis')()
+    })
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
 

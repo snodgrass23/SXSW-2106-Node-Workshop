@@ -184,6 +184,7 @@ http://schedule.sxsw.com/2016/events/event_PP57890
 
 - create worker service that pulls jobs from rabbit
 - add cluster to web service
+- add redis sessions
 
 ### v1.7
 
