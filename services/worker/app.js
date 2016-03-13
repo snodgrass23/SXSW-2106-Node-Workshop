@@ -9,7 +9,7 @@ var config  = require('./config');
 var User = require('./models/user');
 
 var jackrabbit = require('jackrabbit');
-var rabbit = jackrabbit(config.rabbit_url);
+var rabbit     = jackrabbit(config.rabbitmq_bigwig_url || config.rabbit_url);
 
 rabbit
   .default()

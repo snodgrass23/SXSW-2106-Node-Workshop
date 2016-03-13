@@ -4,7 +4,7 @@ var path     = require('path');
 var passport = require('passport');
 var config   = require('./config');
 var jackrabbit = require('jackrabbit');
-var rabbit   = jackrabbit(config.rabbit_url);
+var rabbit   = jackrabbit(config.rabbitmq_bigwig_url || config.rabbit_url);
 var publisher = rabbit.default();
 
 var User;
