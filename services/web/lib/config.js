@@ -13,7 +13,7 @@ module.exports = (function () {
 
   // add in local environment variables
   for (property in process.env) {
-    config[property.toLowerCase()] = process.env[property.toLowerCase()];
+    config[property.toLowerCase()] = process.env[property];
   }
 
   return config;
