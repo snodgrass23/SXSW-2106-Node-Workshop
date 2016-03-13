@@ -4,6 +4,8 @@ This app has several modules that demonstrate different aspects of building a No
 
 [Workshop Details](http://schedule.sxsw.com/2016/events/event_PP57890)
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ## Workshop Outline
 
 http://schedule.sxsw.com/2016/events/event_PP57890
