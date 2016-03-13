@@ -5,17 +5,20 @@
   "main": "./app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha test/**/*.test.js"
+    "test": "NODE_ENV=test mocha test/**/*.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "0.8.5",
     "body-parser": "1.15.0",
     "cookie-parser": "1.4.1",
     "express": "4.13.4",
     "express-session": "1.13.0",
     "jade": "1.11.0",
+    "mongoose": "4.4.7",
+    "mongoose-utils": "0.0.2",
     "morgan": "1.7.0",
     "passport": "0.3.2",
     "passport-local": "1.0.0",

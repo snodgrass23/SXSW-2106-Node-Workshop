@@ -18,6 +18,15 @@ module.exports = function (app) {
     render('details')
   ]);
 
+  app.get('/signup', [
+    render('signup')
+  ]);
+
+  app.post('/signup', [
+    createUser,
+    redirect('/')
+  ]);
+
   app.post('/login', [
     auth(),
     redirect('/')
@@ -52,11 +61,38 @@ function redirect(url) {
 }
 
 function getUser(req, res, next) {
-  res.locals.user = User.find_by('username', req.params.username);
-  return next();
+  User.findBy('username', req.params.username, function(err, user) {
+    res.locals.user = user;
+    return next();
+  });
 }
 
 function getAllUsers(req, res, next) {
-  res.locals.users = User.all();
-  return next();
+  User.find({}, function(err, users) {
+    res.locals.users = users;
+    return next();
+  });
+}
+
+function createUser(req, res, next) {
+  User.create(req.body, function(err) {
+    if (err) {
+      var err_message = ((err+"").indexOf("duplicate key error") > -1) ? "That email address or username is already registered." : err;
+
+      if (err.name == 'ValidationError') {
+        err_message = "Please check the following fields: ";
+        var error_fields = [];
+
+        for (let error in errors) {
+          error_fields.push(errors[error].path);
+        }
+
+        err_message += error_fields.join(", ");
+      }
+
+      req.flash(err_message);
+      return res.redirect('/');
+    }
+    else return next();
+  });
 }

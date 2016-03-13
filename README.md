@@ -177,12 +177,13 @@ http://schedule.sxsw.com/2016/events/event_PP57890
 
 - refactor file organization a bit
 - use mongoose instead of static data for models
+- update views, routes, etc for register
+- update tests for handling async mongoose calls in tests
 
 ### v1.6
 
+- add cluster
 - create worker service that pulls jobs from rabbit
-- introduce cluster
-    - CLUSTER_LEVEL=4
 - what kind of jobs???????
 
 

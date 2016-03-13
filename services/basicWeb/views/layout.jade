@@ -1,3 +1,5 @@
+include ./messages
+
 doctype html
 html
   head
@@ -19,5 +21,15 @@ body
           input(type="password", name="password", placeholder="password")
           input(type="submit", value="=>")
 
+  #messages
+    mixin messages()
+
   #content
     block content
+
+  #footer
+    ul
+      li: a(href='/') Home
+      if !is_logged_in
+        li: a(href='/signup') Signup
+

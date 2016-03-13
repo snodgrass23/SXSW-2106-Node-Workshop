@@ -15,13 +15,14 @@ module.exports = function(app) {
 
 
   // passport setup
-  passport.use(new Strategy(User.auth));
+  passport.use(new Strategy(function(username, password, callback) {
+    User.auth(username, password, callback)
+  }));
   passport.serializeUser(function(user, callback) {
     callback(null, user.username);
   });
   passport.deserializeUser(function(username, callback) {
-    let user = User.find_by('username', username);
-    callback(null, user);
+    User.findBy('username', username, callback);
   });
 
 
@@ -45,9 +46,32 @@ module.exports = function(app) {
     res.locals.is_logged_in = isLoggedIn;
 
     if (isLoggedIn) {
-      res.locals.current_user = User.find_by('username', req.session.passport.user);
+      User.findBy('username', req.session.passport.user, function(err, user) {
+        res.locals.current_user = user;
+        return next();
+      });
     }
+    else {
+      return next();
+    }
+  });
 
+  // flash messaging
+  app.use(function(req, res, next) {
+    req.flash = function(message) {
+      var messages = req.session.messages || [];
+      messages.push(message);
+      req.session.messages = messages;
+    };
+    return next();
+  });
+
+  app.use(function(req, res, next) {
+    res.locals.getMessages = function() {
+      var messages = req.session.messages || [];
+      req.session.messages = [];
+      return messages;
+    };
     return next();
   });
 }

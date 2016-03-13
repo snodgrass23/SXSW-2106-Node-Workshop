@@ -1,0 +1,12 @@
+extends ./layout
+
+block content
+
+  h2 Signup
+
+  form(action='/signup', method='post')
+    ul
+      li: input(type='text', name='username', placeholder='username')
+      li: input(type='text', name='email', placeholder='email')
+      li: input(type='password', name='password', placeholder='password')
+      li: input(type='submit', value='Sign Up!')

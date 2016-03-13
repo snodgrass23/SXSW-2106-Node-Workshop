@@ -10,11 +10,15 @@ body
   border 1px solid #eee
   border-radius 2px
   box-shadow 0px 0px 35px -15px #555
+  position relative
 
 h1
   font-size 150%
   padding 0
   margin 0
+
+ul, li
+  list-style none
 
 #header
   background #333
@@ -46,3 +50,33 @@ h1
 
 #header, #content
   padding 10px 15px
+
+message_background_color = #D42604
+#messages
+  background message_background_color
+  color #fff
+  ul, li
+    margin 0
+    padding 0
+  li
+    padding 10px 5px
+    border-bottom 1px solid darken(message_background_color, 10)
+
+#footer
+  position absolute
+  top 100%
+  text-align center
+  left 0
+  right 0
+  font-size 80%
+
+  a
+    color #888
+    text-decoration none
+    &:hover
+      color green
+
+  ul
+    display inline-block
+    vertical-align top
+    text-align left
