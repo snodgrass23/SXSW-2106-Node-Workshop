@@ -1,0 +1,8 @@
+{
+  "name": "sxsw2016",
+  "description": "A barebones Node.js app built for sxsw2016 workshop",
+  "repository": "https://github.com/snodgrass23/SXSW-2106-Node-Workshop",
+  "addons": ["mongolab:sandbox", "redistogo:nano"],
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "base12"]
+}

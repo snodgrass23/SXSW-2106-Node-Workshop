@@ -8,17 +8,12 @@ module.exports = (function () {
     port: PORT,
     mongoose_url: "mongodb://localhost/sxsw2016",
     rabbit_url: "amqp://guest:guest@localhost:5672",
-    redis: {
-      host: "localhost",
-      port: 6379,
-      auth: "",
-      debug: false
-    }
+    redis_url: "redis://localhost:6379"
   }
 
   // add in local environment variables
   for (property in process.env) {
-    config[property] = process.env[property];
+    config[property.toLowerCase()] = process.env[property.toLowerCase()];
   }
 
   return config;

@@ -9,7 +9,7 @@ module.exports = (function () {
 
   // add in local environment variables
   for (property in process.env) {
-    config[property] = process.env[property];
+    config[property.toLowerCase()] = process.env[property.toLowerCase()];
   }
 
   return config;
