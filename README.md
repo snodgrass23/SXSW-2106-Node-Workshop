@@ -194,5 +194,5 @@ http://schedule.sxsw.com/2016/events/event_PP57890
 
 - Setup Heroku settings for deploy
     - Procfile
-    - quick install button!
-        - app.json
+- show quick install button setup
+    - app.json

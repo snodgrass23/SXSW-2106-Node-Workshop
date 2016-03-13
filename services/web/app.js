@@ -5,17 +5,17 @@
 var express = require('express');
 var app     = express();
 
-var config  = require('./config');
+var config  = require('./lib/config');
 
 // connect mongoose
-require('./mongoose')
+require('./lib/mongoose')
 
 app.models = {
   User: require('./models/user')
 }
 
-require('./middleware')(app);
-require('./routes')(app);
+require('./lib/middleware')(app);
+require('./lib/routes')(app);
 
 
 // start app listener

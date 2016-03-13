@@ -28,10 +28,10 @@ module.exports = function(app) {
 
   // Middleware
   app.use(stylus.middleware({
-    src: path.join(__dirname, '/styles'),
-    dest: path.join(__dirname, '/public')
+    src: path.join(__dirname, '../styles'),
+    dest: path.join(__dirname, '../public')
   }))
-  app.use(serveStatic(path.join(__dirname, '/public')));
+  app.use(serveStatic(path.join(__dirname, '../public')));
   app.use(require('morgan')('combined'));
   app.use(require('cookie-parser')());
   app.use(require('body-parser').urlencoded({ extended: true }));

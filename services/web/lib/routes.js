@@ -56,7 +56,7 @@ function logout(req, res, next) {
 
 function render(view) {
   return function (req, res) {
-    return res.render(path.join(__dirname, `views/${view}`));
+    return res.render(path.join(__dirname, `../views/${view}`));
   };
 }
 
