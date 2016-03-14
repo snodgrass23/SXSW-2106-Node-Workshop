@@ -6,116 +6,7 @@ This app has several modules that demonstrate different aspects of building a No
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Workshop Outline
-
-http://schedule.sxsw.com/2016/events/event_PP57890
-
-### Basic Setup
-
-- Intro
-    - Why I like using Node
-        - quick and easy to get running and see immediate results
-        - enjoy the simplicity of the JS language
-    - What other languages I use and/or enjoy, how I got here
-        - Started 20 years ago writing static HTML sites and building crappy graphics in Photoshop
-        - Dabbled with Flash and ActionScript3
-        - PHP
-            - feels dirty now, but liked it when starting also because of easy quick results
-        - Ruby/Rails
-            - learned for career reasons, learned to accept it
-        - C#
-            - getting back into it while learning Unity and want to build VR games
-        - Python
-            - great for scripting CLI tools (Node is as well)
-    - How I used Node at Skookum and in personal projects
-    - How I use Node at Recurly
-    - other large node companies
-        - Walmart
-        - LinkedIn
-        - myspace
-- Overview of topics
-- get to know audience
-    - how many know JS well?
-    - how many have used node in production?
-- workshop setup
-    - repo (https://github.com/snodgrass23/SXSW-2106-Node-Workshop)
-    - how it’s laid out
-        - git checkout -b version1_2 v1.2
-- install Node, or verify version
-    - I use “N” globally installed to manage versions (https://www.npmjs.com/package/n)
-        - NVM also popular version manager (https://www.npmjs.com/package/nvm)
-    - Demo app built using v5.6.0
-- git init in base directory
-- setup .gitignore
-    - node_modules
-
-### Node best uses, lessons learned
-
-- Versioning explanation
-    - old versions 0.x.x
-    - transition phase with io.js and Node.js
-        - io.js used versions 1.x - 3.x
-    - merged back together, now 4.x and 5.x
-        - even numbers
-            - focus on stability and security
-            - LTS (long term support)
-            - https://medium.com/@nodesource/essential-steps-long-term-support-for-node-js-8ecf7514dbd#.wie89rplb
-        - odd numbers
-            - focus on fast development
-            - https://nodejs.org/en/blog/community/node-v5/
-- considerations for those mostly used to client side JS
-    - client side
-        - operations are inherently small and quick
-            - those that aren’t (ajax calls, etc) are usually abstracted by libs like jquery that do the async for you
-        - code for least common denominator JS language features
-        - limited options for storing data between sessions without using back end features
-        - need to pay attention to file sizes
-            - build processes, minification
-    - server side
-        - easier to build logic flows that make JS slow
-            - take advantage of libraries like Async until comfortable writing small, fast async code manually
-        - can count on JS language features that will be available
-        - shared scope between requests
-            - can be tricky if not used to it
-            - will be cleared on restart, use for convenience and speed not reliability
-            - use something like Redis for sharing between instances and things like pub/sub
-        - can be written and organized without worry about file size
-- Some Node.js best practices
-    - https://blog.heroku.com/archives/2015/11/10/node-habits-2016
-    - small agile services work best
-    - processes that start up really fast and die on exception
-    - be cognizant of module versioning when building a production app
-        - use exact versions in package.json, either
-            - use --save-exact option when installing (configure .npmrc to make this the default)
-            - use shrinkwrap
-    - lowercase file names.
-        - different platforms have different case sensitivities for file names, avoid these issues and stick with lowercase
-    - embrace multiple processes
-        - cluster: http://stackabuse.com/setting-up-a-node-js-cluster/
-    - production apps should be able to use environment variables
-        - never store environment dependent configs in code base, you can put in some default generic values
-    - don’t put node_modules into repo
-- quick run through of how event loop works,
-    - don’t hold up the loop by using long running blocking operations!
-    - use async operations to get around this
-    - gif animation???
-- Considerations when deciding to use Node.js for production application
-    - unit and integration testing very important since not compiled, so you’re on your own finding errors
-    - may be harder than expected to find good devs
-        - current front end js devs may be able to transition, but only if know the language well and not “getting by” on jQuery
-        - many good devs that got in early are also same ones that move on next trendy language
-    - don’t use coffeescript.. 😃
-        - when attempting to hire, will turn off many capable Node.js devs that will usually prefer vanilla
-
-### NPM Discussion
-
-- power of modules system
-    - build your own
-    - first check if someone already has one that does what you need
-- choosing modules
-    - look at author, have they built other modules you trust?
-    - when was module last updated?
-    - how many followers does the repo have
+## Workshop Outline (headers are tags in repo)
 
 ### v1.0 
 
@@ -124,14 +15,6 @@ http://schedule.sxsw.com/2016/events/event_PP57890
     -  console.log("Hello World")
 - run hello world app
     - node app.js
-
-### Explain services architecture we’re going to use
-
-- several services will reside in a services directory
-    - they will all track their own dependencies, etc
-- for this dev, this global app will call them each and make it easy to work with all at the same time
-- each service can be also run/deployed independently
-    - could use separate got repos/sub modules for each service to track issues and PR's
 
 ### v1.1
 
@@ -155,7 +38,7 @@ http://schedule.sxsw.com/2016/events/event_PP57890
     - add “main” property so that we can specify the app’s entry point
         - "main": "./app.js",
 - install express in basicWeb
-    - npm install express --save
+    - npm install express --save --save-exact
 - create app.js for new service, add to main prop in package.js
 
 ### v1.3
